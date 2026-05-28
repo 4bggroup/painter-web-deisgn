@@ -1,0 +1,2347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brushstroke & Co. | Premium Sydney House Painters</title>
+  <meta name="description" content="Premium Sydney house painters specialising in exterior painting, interior painting, roof painting, surface preparation, colour consultation and fixed-price residential painting quotes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #111314;
+      --charcoal: #1b1e1f;
+      --graphite: #25292b;
+      --bone: #f7f2ea;
+      --paper: #fffaf1;
+      --linen: #ece2d1;
+      --clay: #c75d38;
+      --clay-dark: #9f3e22;
+      --mustard: #e6b84b;
+      --blue: #274b5c;
+      --sage: #8a9a73;
+      --mint: #dce8da;
+      --white: #ffffff;
+      --muted: #756f67;
+      --line: rgba(17, 19, 20, .13);
+      --shadow: 0 28px 90px rgba(17, 19, 20, .18);
+      --shadow-soft: 0 16px 55px rgba(17, 19, 20, .10);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 10px;
+      --max: 1220px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bone);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+    body.is-loading { overflow: hidden; }
+    body.is-loading main,
+    body.is-loading .top-strip,
+    body.is-loading .nav-wrap,
+    body.is-loading .footer,
+    body.is-loading .floating-call { opacity: 0; }
+    body.loaded main,
+    body.loaded .top-strip,
+    body.loaded .nav-wrap,
+    body.loaded .footer,
+    body.loaded .floating-call {
+      opacity: 1;
+      transition: opacity .5s ease;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font: inherit; }
+    ::selection { background: var(--clay); color: var(--white); }
+
+    .page-noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .08;
+      z-index: 9999;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,.65), transparent 1px),
+        radial-gradient(circle at 70% 80%, rgba(0,0,0,.45), transparent 1px);
+      background-size: 7px 7px, 11px 11px;
+      mix-blend-mode: multiply;
+    }
+
+    .top-strip {
+      background: var(--ink);
+      color: rgba(255,250,241,.78);
+      font-size: .76rem;
+      letter-spacing: .05em;
+      position: relative;
+      z-index: 40;
+    }
+    .top-strip-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+    }
+    .top-strip strong { color: var(--mustard); font-weight: 800; }
+    .top-strip span:last-child { text-align: right; }
+
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 14px 20px 0;
+      pointer-events: none;
+    }
+    .nav {
+      max-width: var(--max);
+      margin: 0 auto;
+      pointer-events: auto;
+      min-height: 74px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 28px;
+      padding: 14px 18px 14px 22px;
+      border: 1px solid rgba(255,255,255,.45);
+      background: rgba(255, 250, 241, .82);
+      backdrop-filter: blur(22px);
+      border-radius: 999px;
+      box-shadow: 0 12px 40px rgba(17,19,20,.08);
+    }
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-weight: 800;
+      letter-spacing: -.055em;
+      font-size: 1.14rem;
+      white-space: nowrap;
+    }
+    .logo-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background:
+        linear-gradient(135deg, var(--clay) 0 42%, var(--mustard) 42% 60%, var(--blue) 60% 100%);
+      border: 3px solid var(--ink);
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+    .logo small {
+      display: block;
+      font-size: .62rem;
+      letter-spacing: .17em;
+      font-weight: 800;
+      color: var(--clay);
+      margin-top: 1px;
+    }
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      display: inline-flex;
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: rgba(17,19,20,.72);
+      transition: .22s ease;
+    }
+    .nav-links a:hover {
+      color: var(--ink);
+      background: rgba(199,93,56,.12);
+    }
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 14px 18px;
+      font-size: .76rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: .22s ease;
+      box-shadow: 0 10px 24px rgba(17,19,20,.18);
+      white-space: nowrap;
+    }
+    .nav-cta:hover { transform: translateY(-2px); background: var(--clay); }
+    .mobile-toggle { display: none; }
+
+    .hero {
+      position: relative;
+      padding: 56px 20px 82px;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: -15% -20% auto auto;
+      width: 580px;
+      height: 580px;
+      background: radial-gradient(circle, rgba(199,93,56,.18), transparent 68%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 180px;
+      background: linear-gradient(to top, var(--linen), transparent);
+      pointer-events: none;
+    }
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(420px, .95fr);
+      gap: 32px;
+      align-items: stretch;
+    }
+    .hero-copy {
+      min-height: 680px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 48px 0 10px;
+    }
+    .hero-kicker {
+      display: inline-grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 12px;
+      width: fit-content;
+      margin-bottom: 28px;
+      color: var(--clay);
+      font-weight: 900;
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+    }
+    .hero-kicker::before {
+      content: '';
+      width: 46px;
+      height: 12px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--clay), var(--mustard), var(--blue));
+      border: 2px solid var(--ink);
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+    h1 {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: clamp(3.8rem, 8.4vw, 8.2rem);
+      line-height: .88;
+      letter-spacing: -.065em;
+      font-weight: 800;
+      max-width: 920px;
+      text-wrap: balance;
+    }
+    h1 .soft {
+      color: var(--clay);
+      font-style: normal;
+      letter-spacing: -.075em;
+    }
+    h1 .boxed {
+      display: inline-block;
+      transform: rotate(-1.5deg);
+      color: var(--paper);
+      background: var(--ink);
+      padding: 0 .08em .07em;
+      border-radius: 18px;
+      box-shadow: 10px 10px 0 var(--mustard);
+    }
+    .hero-intro {
+      max-width: 620px;
+      margin-top: 34px;
+      font-size: clamp(1.05rem, 1.5vw, 1.24rem);
+      line-height: 1.72;
+      color: var(--muted);
+    }
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: none;
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 17px 23px;
+      font-weight: 900;
+      font-size: .82rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: .24s ease;
+    }
+    .btn-primary {
+      background: var(--clay);
+      color: var(--paper);
+      box-shadow: 0 16px 36px rgba(199,93,56,.28);
+    }
+    .btn-primary:hover { transform: translateY(-3px); background: var(--clay-dark); }
+    .btn-outline {
+      background: rgba(255,250,241,.65);
+      border: 1px solid var(--line);
+      color: var(--ink);
+    }
+    .btn-outline:hover { transform: translateY(-3px); background: var(--paper); }
+
+    .trust-stamps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 54px;
+      max-width: 720px;
+    }
+    .stamp {
+      background: rgba(255,250,241,.78);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 14px;
+      min-height: 96px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 12px 35px rgba(17,19,20,.05);
+    }
+    .stamp strong {
+      font-size: clamp(1.35rem, 2vw, 2rem);
+      font-weight: 900;
+      letter-spacing: -.05em;
+    }
+    .stamp span {
+      color: var(--muted);
+      font-size: .72rem;
+      line-height: 1.35;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .paint-board {
+      position: relative;
+      min-height: 680px;
+      border-radius: 42px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: var(--ink);
+      isolation: isolate;
+    }
+    .paint-board .main-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: .82;
+      filter: saturate(.96) contrast(1.05);
+      transform: scale(1.02);
+    }
+    .paint-board::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(17,19,20,.1), rgba(17,19,20,.82)),
+        radial-gradient(circle at 30% 15%, rgba(230,184,75,.34), transparent 36%);
+      z-index: 1;
+    }
+    .board-content {
+      position: relative;
+      z-index: 3;
+      height: 100%;
+      min-height: 680px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 28px;
+    }
+    .issue-ticket {
+      align-self: flex-end;
+      width: min(360px, 100%);
+      background: rgba(255,250,241,.92);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,.54);
+      border-radius: 26px;
+      padding: 22px;
+      box-shadow: 0 20px 55px rgba(0,0,0,.22);
+    }
+    .ticket-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 18px;
+      padding-bottom: 16px;
+      border-bottom: 1px dashed rgba(17,19,20,.22);
+    }
+    .ticket-top strong {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 1.18rem;
+      line-height: 1.1;
+      letter-spacing: -.045em;
+    }
+    .ticket-pill {
+      background: var(--mint);
+      color: #445635;
+      border-radius: 999px;
+      padding: 7px 9px;
+      font-size: .62rem;
+      font-weight: 900;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .audit-list {
+      list-style: none;
+      margin-top: 17px;
+      display: grid;
+      gap: 10px;
+    }
+    .audit-list li {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 10px;
+      align-items: start;
+      font-size: .86rem;
+      color: #4e4944;
+      line-height: 1.42;
+    }
+    .audit-list li::before {
+      content: '✓';
+      width: 22px;
+      height: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--clay);
+      color: var(--white);
+      font-size: .72rem;
+      font-weight: 900;
+    }
+    .swatch-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .swatch {
+      height: 42px;
+      flex: 1;
+      border-radius: 12px;
+      border: 2px solid rgba(17,19,20,.12);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.4);
+    }
+    .swatch:nth-child(1) { background: #e9dfcf; }
+    .swatch:nth-child(2) { background: #c8b79b; }
+    .swatch:nth-child(3) { background: #425a61; }
+    .swatch:nth-child(4) { background: #c75d38; }
+
+    .board-bottom {
+      color: var(--paper);
+      display: grid;
+      gap: 14px;
+      max-width: 520px;
+    }
+    .live-proof {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(255,255,255,.24);
+      background: rgba(17,19,20,.45);
+      backdrop-filter: blur(15px);
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: .74rem;
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .live-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #46d174;
+      box-shadow: 0 0 0 8px rgba(70,209,116,.18);
+    }
+    .board-bottom h2 {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: clamp(2.1rem, 4vw, 4.2rem);
+      line-height: .95;
+      letter-spacing: -.06em;
+    }
+    .board-bottom p {
+      color: rgba(255,250,241,.78);
+      line-height: 1.65;
+      font-size: .96rem;
+      max-width: 450px;
+    }
+
+    .ticker {
+      position: relative;
+      z-index: 5;
+      background: var(--ink);
+      color: var(--paper);
+      border-top: 3px solid var(--ink);
+      border-bottom: 3px solid var(--ink);
+      overflow: hidden;
+      transform: rotate(-1deg) scale(1.02);
+      margin-top: -16px;
+    }
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: ticker 24s linear infinite;
+    }
+    .ticker span {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      padding: 15px 22px;
+      font-weight: 900;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      font-size: .85rem;
+    }
+    .ticker span::after {
+      content: '';
+      width: 12px;
+      height: 12px;
+      background: var(--mustard);
+      border-radius: 50%;
+      box-shadow: 20px 0 0 var(--clay), 40px 0 0 var(--blue);
+      margin-left: 10px;
+    }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    .section {
+      padding: 116px 20px;
+      position: relative;
+    }
+    .section-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--clay);
+      font-size: .75rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      margin-bottom: 18px;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 34px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--clay);
+      box-shadow: 12px 0 0 var(--mustard);
+    }
+    .section-title {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: clamp(2.6rem, 5.2vw, 5.8rem);
+      line-height: .96;
+      letter-spacing: -.055em;
+      font-weight: 800;
+      max-width: 1040px;
+      text-wrap: balance;
+    }
+    .section-title em { color: var(--clay); }
+    .section-lead {
+      max-width: 650px;
+      margin-top: 24px;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 1.03rem;
+    }
+
+    .diagnosis {
+      background: var(--linen);
+      padding-top: 130px;
+    }
+    .diagnosis-grid {
+      margin-top: 56px;
+      display: grid;
+      grid-template-columns: minmax(300px, .8fr) minmax(0, 1.2fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+    .wall-scan {
+      min-height: 620px;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      position: sticky;
+      top: 110px;
+      background: var(--ink);
+      box-shadow: var(--shadow-soft);
+    }
+    .wall-scan img {
+      width: 100%;
+      height: 100%;
+      min-height: 620px;
+      object-fit: cover;
+      opacity: .78;
+      filter: saturate(.8) contrast(1.08);
+    }
+    .scan-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent, rgba(17,19,20,.84));
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 26px;
+      color: var(--paper);
+    }
+    .scan-overlay strong {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 2.2rem;
+      line-height: .96;
+      letter-spacing: -.05em;
+      margin-bottom: 12px;
+    }
+    .scan-overlay p {
+      color: rgba(255,250,241,.75);
+      line-height: 1.58;
+      font-size: .92rem;
+    }
+    .issue-stack {
+      display: grid;
+      gap: 14px;
+    }
+    .issue-card {
+      border-radius: 26px;
+      background: var(--paper);
+      border: 1px solid rgba(17,19,20,.09);
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 92px 1fr auto;
+      gap: 22px;
+      align-items: center;
+      box-shadow: 0 10px 36px rgba(17,19,20,.06);
+      transition: .25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .issue-card::after {
+      content: '';
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 7px;
+      background: var(--clay);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: .3s ease;
+    }
+    .issue-card:hover {
+      transform: translateX(8px);
+      box-shadow: 0 18px 48px rgba(17,19,20,.1);
+    }
+    .issue-card:hover::after { transform: scaleY(1); }
+    .issue-no {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-weight: 900;
+      font-size: 3.3rem;
+      color: rgba(199,93,56,.25);
+      letter-spacing: -.08em;
+    }
+    .issue-card h3 {
+      font-size: 1.15rem;
+      letter-spacing: -.025em;
+      margin-bottom: 8px;
+    }
+    .issue-card p {
+      color: var(--muted);
+      line-height: 1.58;
+      font-size: .93rem;
+    }
+    .issue-tag {
+      border-radius: 999px;
+      padding: 9px 12px;
+      background: var(--bone);
+      color: var(--clay);
+      font-size: .68rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .proof-lab {
+      background: var(--bone);
+      overflow: hidden;
+    }
+    .lab-head {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(320px, .55fr);
+      gap: 50px;
+      align-items: end;
+    }
+    .lab-note {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 28px;
+      border-radius: 28px;
+      transform: rotate(1deg);
+      box-shadow: 10px 10px 0 var(--mustard);
+    }
+    .lab-note strong {
+      display: block;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 1.8rem;
+      line-height: 1;
+      letter-spacing: -.04em;
+      margin-bottom: 12px;
+    }
+    .lab-note p { color: rgba(255,250,241,.72); line-height: 1.62; font-size: .92rem; }
+
+    .case-grid {
+      margin-top: 62px;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: 94px;
+      gap: 16px;
+    }
+    .case-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 30px;
+      background: var(--ink);
+      color: var(--paper);
+      box-shadow: var(--shadow-soft);
+      isolation: isolate;
+    }
+    .case-card:nth-child(1) { grid-column: 1 / 8; grid-row: span 5; }
+    .case-card:nth-child(2) { grid-column: 8 / 13; grid-row: span 3; }
+    .case-card:nth-child(3) { grid-column: 8 / 13; grid-row: span 4; }
+    .case-card:nth-child(4) { grid-column: 1 / 5; grid-row: span 3; }
+    .case-card:nth-child(5) { grid-column: 5 / 13; grid-row: span 3; }
+    .case-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: .82;
+      filter: saturate(.9) contrast(1.04);
+      transition: .5s ease;
+    }
+    .case-card:hover img { transform: scale(1.06); opacity: .68; }
+    .case-info {
+      position: absolute;
+      inset: auto 18px 18px 18px;
+      z-index: 3;
+      background: rgba(17,19,20,.62);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 22px;
+      padding: 18px;
+    }
+    .case-info h3 {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 1.45rem;
+      letter-spacing: -.045em;
+      margin-bottom: 7px;
+    }
+    .case-info p { color: rgba(255,250,241,.72); line-height: 1.5; font-size: .88rem; }
+    .case-meta {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      margin-bottom: 11px;
+    }
+    .case-meta span {
+      border-radius: 999px;
+      padding: 6px 9px;
+      background: rgba(255,255,255,.13);
+      font-size: .64rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .method {
+      background: var(--ink);
+      color: var(--paper);
+      padding-bottom: 132px;
+      isolation: isolate;
+      overflow: hidden;
+    }
+    .method::before {
+      content: 'PREP PREP PREP';
+      position: absolute;
+      top: 28px;
+      left: -40px;
+      right: -40px;
+      color: rgba(255,255,255,.035);
+      font-size: 12vw;
+      font-weight: 900;
+      letter-spacing: -.07em;
+      white-space: nowrap;
+      z-index: -1;
+    }
+    .method .section-lead { color: rgba(255,250,241,.63); }
+    .method-grid {
+      margin-top: 64px;
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 34px;
+      align-items: start;
+    }
+    .method-photo {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      min-height: 760px;
+      position: sticky;
+      top: 112px;
+      box-shadow: 0 30px 90px rgba(0,0,0,.3);
+    }
+    .method-photo img {
+      width: 100%;
+      min-height: 760px;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(.88) contrast(1.1);
+    }
+    .paint-layers {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 22px;
+      background: rgba(255,250,241,.92);
+      color: var(--ink);
+      border-radius: 26px;
+      padding: 18px;
+      box-shadow: 0 18px 55px rgba(0,0,0,.22);
+    }
+    .paint-layers h3 {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: -.04em;
+      margin-bottom: 14px;
+    }
+    .layer-bars { display: grid; gap: 8px; }
+    .layer {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      align-items: center;
+      gap: 10px;
+      font-size: .72rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: #5e5852;
+    }
+    .bar {
+      height: 16px;
+      border-radius: 999px;
+      background: var(--linen);
+      overflow: hidden;
+    }
+    .bar span { display: block; height: 100%; border-radius: inherit; }
+    .layer:nth-child(1) .bar span { width: 96%; background: var(--blue); }
+    .layer:nth-child(2) .bar span { width: 88%; background: var(--mustard); }
+    .layer:nth-child(3) .bar span { width: 76%; background: var(--sage); }
+    .layer:nth-child(4) .bar span { width: 92%; background: var(--clay); }
+
+    .protocol {
+      display: grid;
+      gap: 13px;
+    }
+    .protocol-item {
+      background: rgba(255,250,241,.07);
+      border: 1px solid rgba(255,250,241,.11);
+      border-radius: 28px;
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 74px 1fr;
+      gap: 20px;
+      transition: .25s ease;
+    }
+    .protocol-item:hover {
+      background: rgba(255,250,241,.11);
+      transform: translateX(-8px);
+    }
+    .protocol-no {
+      width: 74px;
+      height: 74px;
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--clay);
+      color: var(--paper);
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      box-shadow: 6px 6px 0 rgba(230,184,75,.9);
+    }
+    .protocol-item h3 {
+      font-size: 1.05rem;
+      margin-bottom: 9px;
+      letter-spacing: -.02em;
+    }
+    .protocol-item p {
+      color: rgba(255,250,241,.62);
+      line-height: 1.62;
+      font-size: .92rem;
+    }
+
+    .surface-menu {
+      background: var(--linen);
+    }
+    .surface-shell {
+      margin-top: 58px;
+      background: var(--paper);
+      border: 1px solid rgba(17,19,20,.1);
+      border-radius: 38px;
+      padding: 16px;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 16px;
+      box-shadow: var(--shadow-soft);
+    }
+    .surface-tabs {
+      display: grid;
+      gap: 10px;
+    }
+    .surface-tab {
+      width: 100%;
+      border: 1px solid rgba(17,19,20,.1);
+      background: var(--bone);
+      color: var(--ink);
+      border-radius: 22px;
+      padding: 18px;
+      cursor: pointer;
+      text-align: left;
+      transition: .22s ease;
+      display: grid;
+      gap: 5px;
+    }
+    .surface-tab strong {
+      font-size: .96rem;
+      font-weight: 900;
+      letter-spacing: -.02em;
+    }
+    .surface-tab span {
+      color: var(--muted);
+      font-size: .8rem;
+      line-height: 1.4;
+    }
+    .surface-tab.active {
+      background: var(--ink);
+      color: var(--paper);
+      transform: translateX(8px);
+    }
+    .surface-tab.active span { color: rgba(255,250,241,.64); }
+    .surface-display {
+      min-height: 610px;
+      border-radius: 30px;
+      overflow: hidden;
+      position: relative;
+      background: var(--ink);
+      color: var(--paper);
+    }
+    .surface-display img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: .68;
+      filter: saturate(.9) contrast(1.05);
+    }
+    .surface-display::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(17,19,20,.9), rgba(17,19,20,.34) 58%, rgba(17,19,20,.2));
+    }
+    .surface-content {
+      position: relative;
+      z-index: 2;
+      min-height: 610px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      max-width: 570px;
+      padding: 42px;
+    }
+    .surface-content .tag {
+      width: fit-content;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: .7rem;
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,250,241,.74);
+      margin-bottom: 16px;
+    }
+    .surface-content h3 {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: clamp(2.4rem, 4vw, 4.8rem);
+      line-height: .9;
+      letter-spacing: -.06em;
+      margin-bottom: 20px;
+    }
+    .surface-content p {
+      color: rgba(255,250,241,.72);
+      line-height: 1.7;
+      margin-bottom: 26px;
+    }
+    .surface-points {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      list-style: none;
+    }
+    .surface-points li {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 16px;
+      padding: 12px;
+      font-size: .8rem;
+      font-weight: 800;
+      color: rgba(255,250,241,.85);
+    }
+
+    .comparison {
+      background: var(--bone);
+    }
+    .compare-board {
+      margin-top: 58px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-radius: 38px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-soft);
+      background: var(--paper);
+    }
+    .compare-column {
+      padding: 42px;
+      min-height: 610px;
+      position: relative;
+      overflow: hidden;
+    }
+    .compare-column.bad {
+      background: #e9ddcf;
+    }
+    .compare-column.good {
+      background: var(--ink);
+      color: var(--paper);
+    }
+    .compare-column h3 {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 2.7rem;
+      line-height: .92;
+      letter-spacing: -.06em;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 2;
+    }
+    .compare-column p {
+      line-height: 1.7;
+      color: var(--muted);
+      position: relative;
+      z-index: 2;
+    }
+    .compare-column.good p { color: rgba(255,250,241,.68); }
+    .peel-demo {
+      margin-top: 38px;
+      position: relative;
+      z-index: 2;
+      height: 290px;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 70% 40%, rgba(89,70,58,.55), transparent 13%),
+        linear-gradient(135deg, #d1c0a9 0 49%, #9f7d64 49% 52%, #ede5da 52%);
+      border: 1px solid rgba(17,19,20,.13);
+      box-shadow: inset 0 0 0 9px rgba(255,255,255,.18);
+      overflow: hidden;
+    }
+    .peel-demo::before {
+      content: '';
+      position: absolute;
+      width: 210px;
+      height: 210px;
+      right: -44px;
+      top: -30px;
+      border-radius: 56% 44% 39% 61%;
+      background: #f5efe5;
+      box-shadow: -12px 18px 25px rgba(17,19,20,.18);
+      transform: rotate(-23deg);
+    }
+    .finish-demo {
+      margin-top: 38px;
+      position: relative;
+      z-index: 2;
+      height: 290px;
+      border-radius: 28px;
+      background:
+        linear-gradient(110deg, rgba(255,255,255,.18), transparent 45%),
+        linear-gradient(135deg, #314956, #1b2e37);
+      border: 1px solid rgba(255,255,255,.16);
+      box-shadow: inset 0 0 0 9px rgba(255,255,255,.04);
+    }
+    .finish-demo::after {
+      content: '';
+      position: absolute;
+      inset: 24px;
+      border-radius: 20px;
+      border: 1px dashed rgba(255,255,255,.26);
+    }
+    .compare-list {
+      margin-top: 28px;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      position: relative;
+      z-index: 2;
+    }
+    .compare-list li {
+      display: grid;
+      grid-template-columns: 26px 1fr;
+      gap: 10px;
+      line-height: 1.5;
+      color: #635b54;
+      font-size: .92rem;
+    }
+    .compare-column.good .compare-list li { color: rgba(255,250,241,.72); }
+    .compare-list li::before {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .75rem;
+      font-weight: 900;
+    }
+    .bad .compare-list li::before { content: '×'; background: rgba(199,93,56,.18); color: var(--clay); }
+    .good .compare-list li::before { content: '✓'; background: rgba(230,184,75,.18); color: var(--mustard); }
+
+    .suburb-strip {
+      background: var(--clay);
+      color: var(--paper);
+      padding: 56px 20px;
+      overflow: hidden;
+    }
+    .suburb-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: .72fr 1.28fr;
+      gap: 38px;
+      align-items: center;
+    }
+    .suburb-inner h2 {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: clamp(2rem, 3.5vw, 3.8rem);
+      line-height: .95;
+      letter-spacing: -.06em;
+    }
+    .suburb-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+    .suburb-cloud span {
+      border-radius: 999px;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.2);
+      padding: 10px 14px;
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+
+    .reviews {
+      background: var(--paper);
+    }
+    .review-wall {
+      margin-top: 58px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+    }
+    .review-card {
+      min-height: 300px;
+      border-radius: 30px;
+      padding: 28px;
+      background: var(--bone);
+      border: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: .24s ease;
+    }
+    .review-card:nth-child(2) {
+      background: var(--ink);
+      color: var(--paper);
+      transform: translateY(38px);
+    }
+    .review-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-soft); }
+    .review-card:nth-child(2):hover { transform: translateY(28px); }
+    .quote-mark {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 5rem;
+      line-height: .55;
+      color: rgba(199,93,56,.28);
+    }
+    .review-card p {
+      color: var(--muted);
+      line-height: 1.72;
+      font-size: .95rem;
+      margin-top: 20px;
+    }
+    .review-card:nth-child(2) p { color: rgba(255,250,241,.68); }
+    .review-person {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--clay);
+      color: var(--paper);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      box-shadow: 4px 4px 0 var(--mustard);
+    }
+    .review-person strong { display: block; font-size: .92rem; }
+    .review-person span { display: block; margin-top: 3px; color: var(--muted); font-size: .78rem; }
+    .review-card:nth-child(2) .review-person span { color: rgba(255,250,241,.55); }
+
+    .quote-zone {
+      background: var(--linen);
+      padding-bottom: 130px;
+    }
+    .quote-layout {
+      margin-top: 58px;
+      display: grid;
+      grid-template-columns: .86fr 1.14fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .quote-card {
+      background: var(--paper);
+      border-radius: 34px;
+      padding: 34px;
+      border: 1px solid rgba(17,19,20,.1);
+      box-shadow: var(--shadow-soft);
+    }
+    .quote-card.dark {
+      background: var(--ink);
+      color: var(--paper);
+      position: relative;
+      overflow: hidden;
+    }
+    .quote-card.dark::before {
+      content: '';
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: rgba(199,93,56,.22);
+      right: -90px;
+      top: -80px;
+    }
+    .contact-block {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      gap: 18px;
+      margin-top: 30px;
+    }
+    .contact-row {
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+    .contact-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,.11);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .contact-row span {
+      display: block;
+      color: rgba(255,250,241,.5);
+      font-size: .72rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 5px;
+    }
+    .contact-row strong {
+      line-height: 1.4;
+      font-size: .94rem;
+    }
+    .quote-card h3 {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 2.4rem;
+      line-height: .95;
+      letter-spacing: -.06em;
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 2;
+    }
+    .quote-card p {
+      color: var(--muted);
+      line-height: 1.68;
+      position: relative;
+      z-index: 2;
+    }
+    .quote-card.dark p { color: rgba(255,250,241,.64); }
+    .quote-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    .field { display: grid; gap: 8px; }
+    .field.full { grid-column: 1 / -1; }
+    .field label {
+      font-size: .7rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: #817870;
+    }
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid rgba(17,19,20,.12);
+      background: var(--bone);
+      border-radius: 18px;
+      padding: 15px 15px;
+      color: var(--ink);
+      outline: none;
+      transition: .2s ease;
+    }
+    .field textarea { min-height: 118px; resize: vertical; }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: rgba(199,93,56,.6);
+      box-shadow: 0 0 0 4px rgba(199,93,56,.13);
+      background: var(--paper);
+    }
+    .service-chips {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin: 4px 0 6px;
+    }
+    .chip {
+      border: 1px solid rgba(17,19,20,.12);
+      background: var(--bone);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 10px 13px;
+      cursor: pointer;
+      font-size: .77rem;
+      font-weight: 900;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      transition: .2s ease;
+    }
+    .chip.active {
+      background: var(--clay);
+      color: var(--paper);
+      border-color: var(--clay);
+    }
+    .form-submit {
+      grid-column: 1 / -1;
+      margin-top: 6px;
+      width: 100%;
+      border-radius: 18px;
+      border: none;
+      background: var(--clay);
+      color: var(--paper);
+      padding: 17px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      cursor: pointer;
+      transition: .22s ease;
+    }
+    .form-submit:hover { background: var(--clay-dark); transform: translateY(-2px); }
+    .privacy {
+      grid-column: 1 / -1;
+      text-align: center;
+      font-size: .74rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .footer {
+      background: #08090a;
+      color: rgba(255,250,241,.62);
+      padding: 70px 20px 34px;
+    }
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .footer-main {
+      display: grid;
+      grid-template-columns: 1.35fr .8fr .8fr .95fr;
+      gap: 42px;
+      padding-bottom: 52px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .footer .logo { color: var(--paper); margin-bottom: 18px; }
+    .footer-about {
+      line-height: 1.7;
+      max-width: 360px;
+      font-size: .92rem;
+    }
+    .footer-title {
+      color: var(--paper);
+      font-size: .77rem;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: 17px;
+    }
+    .footer-list {
+      list-style: none;
+      display: grid;
+      gap: 11px;
+      font-size: .88rem;
+    }
+    .footer-list a { transition: .2s ease; }
+    .footer-list a:hover { color: var(--mustard); }
+    .newsletter {
+      display: flex;
+      gap: 8px;
+      margin-top: 18px;
+    }
+    .newsletter input {
+      min-width: 0;
+      flex: 1;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.07);
+      color: var(--paper);
+      border-radius: 14px;
+      padding: 12px 13px;
+      outline: none;
+    }
+    .newsletter button {
+      border: none;
+      border-radius: 14px;
+      background: var(--mustard);
+      color: var(--ink);
+      padding: 0 15px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    .footer-bottom {
+      padding-top: 26px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: .78rem;
+      flex-wrap: wrap;
+    }
+    .floating-call {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 80;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: var(--clay);
+      color: var(--paper);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.45rem;
+      box-shadow: 0 14px 35px rgba(199,93,56,.38);
+      border: 3px solid var(--paper);
+      transition: .22s ease;
+    }
+    .floating-call:hover { transform: translateY(-4px) rotate(-7deg); }
+
+    /* Premium opening animation */
+    .preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: var(--ink);
+      color: var(--paper);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      transition: opacity .55s ease, visibility .55s ease;
+    }
+    .preloader.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .loader-card {
+      position: relative;
+      z-index: 4;
+      width: min(440px, calc(100vw - 40px));
+      padding: 34px;
+      border-radius: 34px;
+      background: rgba(255,250,241,.07);
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 30px 100px rgba(0,0,0,.35);
+      backdrop-filter: blur(18px);
+      transform: translateY(18px) scale(.96);
+      animation: loaderCardIn .75s cubic-bezier(.19,1,.22,1) forwards;
+    }
+    .loader-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 1.42rem;
+      font-weight: 800;
+      letter-spacing: -.055em;
+      margin-bottom: 24px;
+    }
+    .loader-mark {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--clay) 0 42%, var(--mustard) 42% 61%, var(--blue) 61% 100%);
+      border: 3px solid var(--paper);
+      box-shadow: 5px 5px 0 rgba(230,184,75,.9);
+      animation: markSpin 1.25s cubic-bezier(.19,1,.22,1) .15s both;
+    }
+    .loader-line-wrap {
+      height: 9px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(255,255,255,.12);
+      margin-bottom: 16px;
+    }
+    .loader-line {
+      height: 100%;
+      width: 0;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--clay), var(--mustard), var(--blue));
+      animation: loadLine 1.25s cubic-bezier(.19,1,.22,1) .15s forwards;
+    }
+    .loader-card p {
+      color: rgba(255,250,241,.66);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .paint-wipe {
+      position: absolute;
+      inset: -20% auto -20% -22%;
+      width: 46vw;
+      min-width: 420px;
+      transform: skewX(-11deg) translateX(-130%);
+      border-radius: 0 42px 42px 0;
+      filter: blur(.2px);
+    }
+    .wipe-one { background: var(--clay); animation: paintSweep 1.15s cubic-bezier(.75,0,.17,1) 1.22s forwards; }
+    .wipe-two { background: var(--mustard); animation: paintSweep 1.15s cubic-bezier(.75,0,.17,1) 1.32s forwards; opacity: .95; }
+    .wipe-three { background: var(--bone); animation: paintSweep 1.15s cubic-bezier(.75,0,.17,1) 1.42s forwards; }
+
+    @keyframes loaderCardIn {
+      to { transform: translateY(0) scale(1); }
+    }
+    @keyframes markSpin {
+      from { transform: rotate(-35deg) scale(.72); opacity: 0; }
+      to { transform: rotate(0deg) scale(1); opacity: 1; }
+    }
+    @keyframes loadLine {
+      to { width: 100%; }
+    }
+    @keyframes paintSweep {
+      0% { transform: skewX(-11deg) translateX(-130%); }
+      55% { transform: skewX(-11deg) translateX(90%); }
+      100% { transform: skewX(-11deg) translateX(260%); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(34px) scale(.985);
+      filter: blur(12px);
+      transition: opacity .9s cubic-bezier(.19,1,.22,1), transform .9s cubic-bezier(.19,1,.22,1), filter .9s cubic-bezier(.19,1,.22,1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .diagnosis-grid,
+      .method-grid,
+      .lab-head,
+      .quote-layout,
+      .suburb-inner {
+        grid-template-columns: 1fr;
+      }
+      .hero-copy { min-height: auto; padding-top: 26px; }
+      .paint-board, .board-content { min-height: 620px; }
+      .trust-stamps { grid-template-columns: repeat(2, 1fr); }
+      .wall-scan, .method-photo { position: relative; top: auto; min-height: 520px; }
+      .wall-scan img, .method-photo img { min-height: 520px; }
+      .case-card:nth-child(n) { grid-column: span 6; grid-row: span 4; }
+      .surface-shell { grid-template-columns: 1fr; }
+      .surface-tabs { grid-template-columns: repeat(2, 1fr); }
+      .surface-tab.active { transform: none; }
+      .review-wall { grid-template-columns: 1fr; }
+      .review-card:nth-child(2) { transform: none; }
+      .review-card:nth-child(2):hover { transform: translateY(-8px); }
+      .footer-main { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 860px) {
+      .top-strip-inner { flex-direction: column; align-items: flex-start; gap: 6px; }
+      .top-strip span:last-child { text-align: left; }
+      .nav {
+        grid-template-columns: 1fr auto;
+        border-radius: 28px;
+      }
+      .nav-links {
+        display: none;
+        grid-column: 1 / -1;
+        justify-content: flex-start;
+        padding-top: 12px;
+        border-top: 1px solid rgba(17,19,20,.1);
+      }
+      .nav.open .nav-links { display: flex; }
+      .nav-cta { display: none; }
+      .mobile-toggle {
+        display: inline-flex;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(17,19,20,.12);
+        background: var(--paper);
+        font-size: 1.3rem;
+        cursor: pointer;
+      }
+      .section { padding: 88px 18px; }
+      .hero { padding-left: 18px; padding-right: 18px; }
+      h1 { font-size: clamp(3.6rem, 16vw, 5.6rem); }
+      .issue-card { grid-template-columns: 1fr; }
+      .issue-tag { width: fit-content; }
+      .case-grid { grid-auto-rows: 86px; }
+      .case-card:nth-child(n) { grid-column: 1 / -1; grid-row: span 4; }
+      .compare-board { grid-template-columns: 1fr; }
+      .surface-tabs { grid-template-columns: 1fr; }
+      .surface-points { grid-template-columns: 1fr; }
+      .quote-form { grid-template-columns: 1fr; }
+      .footer-main { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .trust-stamps { grid-template-columns: 1fr; }
+      .stamp { min-height: auto; gap: 12px; }
+      .paint-board, .board-content { min-height: 640px; }
+      .board-content { padding: 18px; }
+      .issue-ticket { align-self: stretch; }
+      .hero-actions .btn { width: 100%; }
+      .surface-content { padding: 26px; }
+      .compare-column, .quote-card { padding: 26px; }
+      .protocol-item { grid-template-columns: 1fr; }
+      .suburb-cloud { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body class="is-loading">
+  <div class="preloader" id="preloader" aria-label="Loading Brushstroke and Co website">
+    <div class="loader-card">
+      <div class="loader-brand">
+        <span class="loader-mark"></span>
+        <span>Brushstroke & Co.</span>
+      </div>
+      <div class="loader-line-wrap"><div class="loader-line"></div></div>
+      <p>Preparing the surface...</p>
+    </div>
+    <div class="paint-wipe wipe-one"></div>
+    <div class="paint-wipe wipe-two"></div>
+    <div class="paint-wipe wipe-three"></div>
+  </div>
+  <div class="page-noise" aria-hidden="true"></div>
+
+  <div class="top-strip">
+    <div class="top-strip-inner">
+      <span><strong>Fixed-price quotes.</strong> No vague allowances. No surprise paint charges.</span>
+      <span>Sydney, Northern Beaches, Inner West, North Shore & Hills District</span>
+    </div>
+  </div>
+
+  <div class="nav-wrap">
+    <nav class="nav" id="siteNav" aria-label="Main navigation">
+      <a href="#top" class="logo" aria-label="Brushstroke and Co home">
+        <span class="logo-mark" aria-hidden="true"></span>
+        <span>Brushstroke & Co.<small>Sydney Painters</small></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#diagnosis">Problems</a></li>
+        <li><a href="#proof">Project Proof</a></li>
+        <li><a href="#method">Prep Method</a></li>
+        <li><a href="#surfaces">Services</a></li>
+        <li><a href="#quote">Quote</a></li>
+      </ul>
+      <a href="#quote" class="nav-cta">Book Paint Audit →</a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">☰</button>
+    </nav>
+  </div>
+
+  <a class="floating-call" href="tel:0291473882" aria-label="Call Brushstroke and Co">☎</a>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-copy reveal">
+          <div>
+            <span class="hero-kicker">House painters who care about the finish after year five</span>
+            <h1>Paint that makes tired homes feel <span class="soft">expensive</span> again.</h1>
+            <p class="hero-intro">Premium residential and strata painting across Sydney, built around the part most painters rush: preparation. We inspect the surface, protect the home, document the system, and leave a finish designed to survive heat, salt air, moisture and daily living.</p>
+            <div class="hero-actions">
+              <a href="#quote" class="btn btn-primary">Get a Free Surface Audit</a>
+              <a href="#proof" class="btn btn-outline">See Transformation Proof</a>
+            </div>
+          </div>
+
+          <div class="trust-stamps" aria-label="Business highlights">
+            <div class="stamp"><strong>2,400+</strong><span>Sydney homes painted</span></div>
+            <div class="stamp"><strong>20 yrs</strong><span>Local painting experience</span></div>
+            <div class="stamp"><strong>5 yr</strong><span>Workmanship warranty</span></div>
+            <div class="stamp"><strong>$20M</strong><span>Public liability cover</span></div>
+          </div>
+        </div>
+
+        <aside class="paint-board reveal" aria-label="Painting audit preview">
+          <img class="main-img" src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=1200&q=88" alt="Professional painter carefully painting a residential wall" />
+          <div class="board-content">
+            <div class="issue-ticket">
+              <div class="ticket-top">
+                <strong>Your free paint audit checks:</strong>
+                <span class="ticket-pill">No obligation</span>
+              </div>
+              <ul class="audit-list">
+                <li>Why the existing paint failed and what must be repaired first.</li>
+                <li>Which primer, coating system and finish will suit your surface.</li>
+                <li>Colour choice in real daylight, not from a phone screen.</li>
+                <li>Fixed quote with labour, paint, prep and cleanup separated clearly.</li>
+              </ul>
+              <div class="swatch-row" aria-label="Paint colour swatches">
+                <span class="swatch"></span><span class="swatch"></span><span class="swatch"></span><span class="swatch"></span>
+              </div>
+            </div>
+
+            <div class="board-bottom">
+              <span class="live-proof"><span class="live-dot"></span>Current Sydney Exterior Season</span>
+              <h2>UV. Rain. Salt air. We paint for the climate you actually live in.</h2>
+              <p>Every exterior quote includes surface condition notes, moisture risk, sun exposure, access needs and recommended coating system.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Exterior repainting</span><span>Interior walls & ceilings</span><span>Roof coating</span><span>Strata painting</span><span>Colour consultation</span><span>Render repair</span><span>Deck & fence staining</span><span>Pre-sale refresh</span>
+        <span>Exterior repainting</span><span>Interior walls & ceilings</span><span>Roof coating</span><span>Strata painting</span><span>Colour consultation</span><span>Render repair</span><span>Deck & fence staining</span><span>Pre-sale refresh</span>
+      </div>
+    </div>
+
+    <section class="section diagnosis" id="diagnosis">
+      <div class="section-inner">
+        <span class="eyebrow reveal">Paint failure diagnosis</span>
+        <h2 class="section-title reveal">Most bad paint jobs do not fail on the final coat. They fail before the first coat.</h2>
+        <p class="section-lead reveal">The difference between a cheap repaint and a long-lasting repaint is rarely the colour. It is what happens to the wall before anyone opens the paint tin.</p>
+
+        <div class="diagnosis-grid">
+          <div class="wall-scan reveal">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=900&q=86" alt="Painter preparing a wall surface before applying paint" />
+            <div class="scan-overlay">
+              <strong>We read the wall before we paint it.</strong>
+              <p>Peeling, chalking, mould, movement cracks and old gloss all need different treatment. Guessing is how paint fails early.</p>
+            </div>
+          </div>
+
+          <div class="issue-stack">
+            <article class="issue-card reveal">
+              <span class="issue-no">01</span>
+              <div>
+                <h3>Paint peeling within 12–24 months</h3>
+                <p>Usually caused by poor washing, no sanding, wrong primer or painting over chalky surfaces. We test adhesion and specify the coating system before starting.</p>
+              </div>
+              <span class="issue-tag">Prep fault</span>
+            </article>
+            <article class="issue-card reveal">
+              <span class="issue-no">02</span>
+              <div>
+                <h3>Patchy walls under evening light</h3>
+                <p>Bad rolling technique, poor coverage and unsealed patches become obvious at night. We seal repairs, control sheen and back-roll large surfaces for consistency.</p>
+              </div>
+              <span class="issue-tag">Finish fault</span>
+            </article>
+            <article class="issue-card reveal">
+              <span class="issue-no">03</span>
+              <div>
+                <h3>Cracks returning after repainting</h3>
+                <p>Paint does not fix movement. We use flexible gap fillers, render compounds and correct joint treatment where the building needs movement tolerance.</p>
+              </div>
+              <span class="issue-tag">Repair fault</span>
+            </article>
+            <article class="issue-card reveal">
+              <span class="issue-no">04</span>
+              <div>
+                <h3>Colour regret after the job is complete</h3>
+                <p>Colour changes with sunlight, flooring, roof tone and neighbouring surfaces. We test physical samples at your home before the full order is placed.</p>
+              </div>
+              <span class="issue-tag">Choice fault</span>
+            </article>
+            <article class="issue-card reveal">
+              <span class="issue-no">05</span>
+              <div>
+                <h3>Mess, overspray and damage around the home</h3>
+                <p>Furniture, gardens, windows, floors, fixtures and driveways are protected before work starts. Clean site discipline is part of the job, not an optional extra.</p>
+              </div>
+              <span class="issue-tag">Care fault</span>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section proof-lab" id="proof">
+      <div class="section-inner">
+        <div class="lab-head">
+          <div>
+            <span class="eyebrow reveal">Project proof, not empty promises</span>
+            <h2 class="section-title reveal">A repaint should change how the whole property feels.</h2>
+            <p class="section-lead reveal">Here is how we think about every project: surface condition, colour direction, protection needs, finish quality and long-term maintenance.</p>
+          </div>
+          <aside class="lab-note reveal">
+            <strong>No generic gallery.</strong>
+            <p>Every project card below explains the problem solved, the finish used and why the decision mattered.</p>
+          </aside>
+        </div>
+
+        <div class="case-grid">
+          <article class="case-card reveal">
+            <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200&q=88" alt="Freshly painted modern Australian home exterior" />
+            <div class="case-info">
+              <div class="case-meta"><span>Mosman</span><span>Full exterior</span><span>UV stable finish</span></div>
+              <h3>Faded render restored with a warmer coastal palette.</h3>
+              <p>Pressure wash, crack repair, masonry sealer and two weather-resistant finish coats for harsh afternoon sun.</p>
+            </div>
+          </article>
+
+          <article class="case-card reveal">
+            <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=88" alt="Bright freshly painted interior living space" />
+            <div class="case-info">
+              <div class="case-meta"><span>Balmain</span><span>Interior</span></div>
+              <h3>Warm white interior without the flat rental look.</h3>
+              <p>Low-VOC finish with careful sheen control for family living areas.</p>
+            </div>
+          </article>
+
+          <article class="case-card reveal">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=88" alt="Modern freshly painted residential facade" />
+            <div class="case-info">
+              <div class="case-meta"><span>Castle Hill</span><span>Facade refresh</span></div>
+              <h3>Street appeal lifted before sale campaign.</h3>
+              <p>Exterior colour correction, trim contrast and fast staged access for a clean pre-market result.</p>
+            </div>
+          </article>
+
+          <article class="case-card reveal">
+            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=88" alt="Elegant neutral painted bedroom wall" />
+            <div class="case-info">
+              <div class="case-meta"><span>Paddington</span><span>Feature wall</span></div>
+              <h3>Soft texture instead of a loud feature colour.</h3>
+              <p>Decorative finish designed around natural light and timber flooring.</p>
+            </div>
+          </article>
+
+          <article class="case-card reveal">
+            <img src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=1200&q=88" alt="Premium interior painting in a modern home" />
+            <div class="case-info">
+              <div class="case-meta"><span>North Sydney</span><span>Strata common areas</span><span>After-hours</span></div>
+              <h3>Cleaner common areas with almost no resident disruption.</h3>
+              <p>Weekend scheduling, odour-controlled coatings and durable washable finish for high-traffic walls.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section method" id="method">
+      <div class="section-inner">
+        <span class="eyebrow reveal">The Brushstroke prep method</span>
+        <h2 class="section-title reveal">The finish is only as good as the layers underneath it.</h2>
+        <p class="section-lead reveal">Our jobs are built around preparation because that is what protects your money. We do not hide the process; we document it.</p>
+
+        <div class="method-grid">
+          <div class="method-photo reveal">
+            <img src="https://images.unsplash.com/photo-1574359411659-15573a27fd0c?auto=format&fit=crop&w=900&q=88" alt="Painter working with brush and masking tape for clean edges" />
+            <div class="paint-layers">
+              <h3>What a lasting finish needs</h3>
+              <div class="layer-bars">
+                <div class="layer"><span>Wash</span><div class="bar"><span></span></div></div>
+                <div class="layer"><span>Repair</span><div class="bar"><span></span></div></div>
+                <div class="layer"><span>Prime</span><div class="bar"><span></span></div></div>
+                <div class="layer"><span>Finish</span><div class="bar"><span></span></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="protocol">
+            <article class="protocol-item reveal">
+              <span class="protocol-no">1</span>
+              <div>
+                <h3>Surface wash and contamination removal</h3>
+                <p>Dust, salt, mould, grease and chalking are removed before sanding or coating. Paint applied over contamination cannot bond properly.</p>
+              </div>
+            </article>
+            <article class="protocol-item reveal">
+              <span class="protocol-no">2</span>
+              <div>
+                <h3>Crack, gap and substrate repair</h3>
+                <p>We repair movement gaps, failed caulking, dents, peeling edges, old patch marks and render damage before any finish coat is considered.</p>
+              </div>
+            </article>
+            <article class="protocol-item reveal">
+              <span class="protocol-no">3</span>
+              <div>
+                <h3>Primer matched to the surface</h3>
+                <p>Bare timber, new plaster, old gloss, masonry, stained patches and water marks all need different primers. One generic undercoat is not enough.</p>
+              </div>
+            </article>
+            <article class="protocol-item reveal">
+              <span class="protocol-no">4</span>
+              <div>
+                <h3>Controlled application, not rushed coverage</h3>
+                <p>Cutting-in, roller loading, drying windows, humidity and coat thickness all affect the final result. We paint to system, not just to colour.</p>
+              </div>
+            </article>
+            <article class="protocol-item reveal">
+              <span class="protocol-no">5</span>
+              <div>
+                <h3>Walkthrough, touch-ups and finish record</h3>
+                <p>At handover, you receive colour names, paint products, surface notes and warranty information so future maintenance is simple.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section surface-menu" id="surfaces">
+      <div class="section-inner">
+        <span class="eyebrow reveal">Services by surface</span>
+        <h2 class="section-title reveal">Different surfaces need different thinking.</h2>
+        <p class="section-lead reveal">We do not sell one generic painting package. Choose the surface, and we will show the prep, paint and protection approach it needs.</p>
+
+        <div class="surface-shell reveal">
+          <div class="surface-tabs" role="tablist" aria-label="Painting services">
+            <button class="surface-tab active" data-service="exterior" type="button"><strong>Exterior House Painting</strong><span>Render, weatherboard, brick, trims, fascia and gutters.</span></button>
+            <button class="surface-tab" data-service="interior" type="button"><strong>Interior Painting</strong><span>Walls, ceilings, doors, skirting, cornices and feature walls.</span></button>
+            <button class="surface-tab" data-service="roof" type="button"><strong>Roof Painting</strong><span>Tile restoration, membrane coating and heat-reflective finishes.</span></button>
+            <button class="surface-tab" data-service="strata" type="button"><strong>Commercial & Strata</strong><span>Common areas, offices, apartments and body corporate work.</span></button>
+            <button class="surface-tab" data-service="timber" type="button"><strong>Deck & Timber Staining</strong><span>Decks, fences, pergolas and outdoor timber protection.</span></button>
+            <button class="surface-tab" data-service="colour" type="button"><strong>Colour Consultation</strong><span>Physical samples, lighting checks and exterior palette planning.</span></button>
+          </div>
+
+          <div class="surface-display">
+            <img id="serviceImage" src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200&q=88" alt="Exterior painting service preview" />
+            <div class="surface-content">
+              <span class="tag" id="serviceTag">Weather-ready exterior system</span>
+              <h3 id="serviceTitle">Exterior painting that holds up in Sydney weather.</h3>
+              <p id="serviceText">Full external repainting with pressure washing, scraping, sanding, flexible gap filling, mould treatment, masonry sealing and premium exterior coatings selected for UV, rain and salt exposure.</p>
+              <ul class="surface-points" id="servicePoints">
+                <li>Render and masonry coating</li>
+                <li>Fascia, eaves and trims</li>
+                <li>Weatherproof finish coats</li>
+                <li>Fixed written quote</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section comparison">
+      <div class="section-inner">
+        <span class="eyebrow reveal">Why homeowners call us after a bad job</span>
+        <h2 class="section-title reveal">Cheap paint work looks cheaper every month.</h2>
+        <p class="section-lead reveal">A low quote can feel attractive until the finish starts peeling, the colour looks wrong or the surface shows every shortcut. We build the work so it still looks intentional years later.</p>
+
+        <div class="compare-board reveal">
+          <div class="compare-column bad">
+            <h3>Budget repaint</h3>
+            <p>Fast coverage, unclear scope, weak prep and a finish that depends on luck.</p>
+            <div class="peel-demo" aria-hidden="true"></div>
+            <ul class="compare-list">
+              <li>Quote does not clearly separate labour, paint, primer and repair work.</li>
+              <li>Surface defects are painted over instead of fixed.</li>
+              <li>Colour is chosen online with no light testing.</li>
+              <li>No documented coating system for future maintenance.</li>
+            </ul>
+          </div>
+          <div class="compare-column good">
+            <h3>Brushstroke system</h3>
+            <p>A measured surface plan, protected site, correct prep and a finish designed to last.</p>
+            <div class="finish-demo" aria-hidden="true"></div>
+            <ul class="compare-list">
+              <li>Surface audit explains what needs repair before painting.</li>
+              <li>Correct primer and coating system for the exact surface.</li>
+              <li>Physical colour samples checked at the property.</li>
+              <li>Walkthrough, warranty and paint record at completion.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="suburb-strip" aria-label="Service areas">
+      <div class="suburb-inner">
+        <h2>Painting across Greater Sydney.</h2>
+        <div class="suburb-cloud">
+          <span>North Shore</span><span>Northern Beaches</span><span>Inner West</span><span>Eastern Suburbs</span><span>Hills District</span><span>Parramatta</span><span>St George</span><span>Lower North Shore</span><span>CBD Apartments</span><span>Strata Complexes</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reviews">
+      <div class="section-inner">
+        <span class="eyebrow reveal">Client confidence</span>
+        <h2 class="section-title reveal">The best review is when a homeowner says the job felt calm.</h2>
+        <p class="section-lead reveal">Painting means people are inside or around your home. Clean communication matters as much as the finish.</p>
+
+        <div class="review-wall">
+          <article class="review-card reveal">
+            <div>
+              <div class="quote-mark">“</div>
+              <p>They spent more time protecting our floors and windows than the last painter spent on the whole first day. The finish is perfect and the house was left cleaner than before.</p>
+            </div>
+            <div class="review-person"><span class="avatar">SM</span><div><strong>Sandra M.</strong><span>Mosman exterior and interior repaint</span></div></div>
+          </article>
+          <article class="review-card reveal">
+            <div>
+              <div class="quote-mark">“</div>
+              <p>The quote was not the cheapest, but it was the only one that explained the peeling problem properly. Eighteen months later, no bubbling, no patchiness, no regrets.</p>
+            </div>
+            <div class="review-person"><span class="avatar">JP</span><div><strong>James P.</strong><span>Baulkham Hills full property package</span></div></div>
+          </article>
+          <article class="review-card reveal">
+            <div>
+              <div class="quote-mark">“</div>
+              <p>Our strata committee needed someone reliable and low-drama. They gave clear dates, worked around residents and every hallway looks brighter without smelling like paint.</p>
+            </div>
+            <div class="review-person"><span class="avatar">RL</span><div><strong>Rachel L.</strong><span>North Sydney strata repaint</span></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section quote-zone" id="quote">
+      <div class="section-inner">
+        <span class="eyebrow reveal">Free on-site quote</span>
+        <h2 class="section-title reveal">Tell us what is happening to the paint. We will tell you what it actually needs.</h2>
+        <p class="section-lead reveal">Book a free paint audit. We inspect the surface, discuss your colour direction, explain the correct system and send a fixed written quote.</p>
+
+        <div class="quote-layout">
+          <aside class="quote-card dark reveal">
+            <h3>Talk to a painter, not a call centre.</h3>
+            <p>Send your details and we will call to understand the property before booking the site visit. For urgent pre-sale or rental changeover work, call directly.</p>
+            <div class="contact-block">
+              <div class="contact-row"><div class="contact-icon">☎</div><div><span>Phone</span><strong>(02) 9147 3882</strong></div></div>
+              <div class="contact-row"><div class="contact-icon">✉</div><div><span>Email</span><strong>hello@brushstrokeandco.com.au</strong></div></div>
+              <div class="contact-row"><div class="contact-icon">⌂</div><div><span>Studio</span><strong>14 Palette Lane, St Leonards NSW 2065<br>Servicing Greater Sydney</strong></div></div>
+              <div class="contact-row"><div class="contact-icon">⏱</div><div><span>Hours</span><strong>Mon–Fri 7:00am–5:30pm<br>Saturday 8:00am–1:00pm</strong></div></div>
+            </div>
+          </aside>
+
+          <form class="quote-card quote-form reveal" id="quoteForm">
+            <div class="field">
+              <label for="firstName">First name</label>
+              <input id="firstName" type="text" placeholder="Sarah" required>
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input id="phone" type="tel" placeholder="04XX XXX XXX" required>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" type="email" placeholder="sarah@email.com.au" required>
+            </div>
+            <div class="field">
+              <label for="suburb">Suburb</label>
+              <input id="suburb" type="text" placeholder="e.g. Manly, Chatswood, Parramatta">
+            </div>
+            <div class="field full">
+              <label>What do you need painted?</label>
+              <div class="service-chips" id="quoteChips">
+                <button type="button" class="chip active">Exterior</button>
+                <button type="button" class="chip">Interior</button>
+                <button type="button" class="chip">Roof</button>
+                <button type="button" class="chip">Strata</button>
+                <button type="button" class="chip">Deck / Fence</button>
+                <button type="button" class="chip">Colour Advice</button>
+              </div>
+            </div>
+            <div class="field">
+              <label for="propertyType">Property type</label>
+              <select id="propertyType">
+                <option>Single-storey house</option>
+                <option>Double-storey house</option>
+                <option>Apartment / unit</option>
+                <option>Townhouse</option>
+                <option>Commercial / office</option>
+                <option>Strata complex</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="timeline">Ideal timing</label>
+              <select id="timeline">
+                <option>Flexible</option>
+                <option>Within 2 weeks</option>
+                <option>This month</option>
+                <option>Before selling / leasing</option>
+                <option>Urgent repair</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="details">What is the current problem?</label>
+              <textarea id="details" placeholder="Example: Exterior render is peeling on the sunny side, last painted around 10 years ago. We want a modern neutral colour before summer."></textarea>
+            </div>
+            <button class="form-submit" type="submit">Request My Free Paint Audit →</button>
+            <p class="privacy">Your information stays private. No spam, no pushy follow-up. We only contact you about your painting quote.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-main">
+        <div>
+          <a href="#top" class="logo"><span class="logo-mark" aria-hidden="true"></span><span>Brushstroke & Co.<small>Sydney Painters</small></span></a>
+          <p class="footer-about">Premium Sydney painters specialising in surface preparation, exterior repainting, interior painting, roof coating, strata work and colour consultation for homeowners who want a cleaner, longer-lasting result.</p>
+        </div>
+        <div>
+          <h3 class="footer-title">Services</h3>
+          <ul class="footer-list">
+            <li><a href="#surfaces">Exterior Painting</a></li>
+            <li><a href="#surfaces">Interior Painting</a></li>
+            <li><a href="#surfaces">Roof Painting</a></li>
+            <li><a href="#surfaces">Strata Painting</a></li>
+            <li><a href="#surfaces">Deck Staining</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-title">Company</h3>
+          <ul class="footer-list">
+            <li><a href="#diagnosis">Paint Problems</a></li>
+            <li><a href="#proof">Project Proof</a></li>
+            <li><a href="#method">Our Method</a></li>
+            <li><a href="#quote">Free Quote</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-title">Seasonal paint notes</h3>
+          <p class="footer-about">Get simple advice about colour, maintenance and repaint timing for Sydney homes.</p>
+          <form class="newsletter">
+            <input type="email" placeholder="your@email.com.au" aria-label="Email address for newsletter">
+            <button type="submit" aria-label="Subscribe">→</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Brushstroke & Co. Pty Ltd · ABN 47 132 884 020 · NSW Lic. #PBL20439</span>
+        <span>Privacy Policy · Terms of Trade · Workmanship Warranty</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      setTimeout(() => {
+        document.body.classList.remove('is-loading');
+        document.body.classList.add('loaded');
+        preloader.classList.add('hidden');
+      }, 1900);
+    });
+
+    const nav = document.getElementById('siteNav');
+    const mobileToggle = document.getElementById('mobileToggle');
+    mobileToggle.addEventListener('click', () => nav.classList.toggle('open'));
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => nav.classList.remove('open'));
+    });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    const services = {
+      exterior: {
+        tag: 'Weather-ready exterior system',
+        title: 'Exterior painting that holds up in Sydney weather.',
+        text: 'Full external repainting with pressure washing, scraping, sanding, flexible gap filling, mould treatment, masonry sealing and premium exterior coatings selected for UV, rain and salt exposure.',
+        img: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200&q=88',
+        alt: 'Freshly painted modern Australian home exterior',
+        points: ['Render and masonry coating', 'Fascia, eaves and trims', 'Weatherproof finish coats', 'Fixed written quote']
+      },
+      interior: {
+        tag: 'Cleaner interior finish',
+        title: 'Interior painting that looks calm in real light.',
+        text: 'Walls, ceilings, trims, doors and feature walls painted with careful patch sealing, low-VOC options and sheen control so the room looks smooth from morning light to evening lamps.',
+        img: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=88',
+        alt: 'Premium freshly painted home interior',
+        points: ['Walls and ceilings', 'Doors and skirting', 'Low-VOC options', 'Furniture protection']
+      },
+      roof: {
+        tag: 'Roof restoration coating',
+        title: 'Roof painting that protects more than colour.',
+        text: 'Roof cleaning, tile repair checks, primer and membrane coatings designed to refresh tired roofs, improve weather resistance and extend roof appearance before replacement becomes urgent.',
+        img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=88',
+        alt: 'Modern home roof and exterior',
+        points: ['Tile roof coating', 'High-pressure clean', 'Heat reflective options', 'Cracked tile checks']
+      },
+      strata: {
+        tag: 'Low-disruption strata painting',
+        title: 'Commercial and strata painting without the chaos.',
+        text: 'Scheduled painting for offices, apartments, common areas and strata properties with resident notices, staged access, after-hours options and durable washable coatings for high-traffic areas.',
+        img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=88',
+        alt: 'Commercial interior painting and common area upgrade',
+        points: ['Common areas', 'Office painting', 'After-hours work', 'Body corporate ready']
+      },
+      timber: {
+        tag: 'Outdoor timber protection',
+        title: 'Decks, fences and timber brought back to life.',
+        text: 'Weathered timber is cleaned, sanded, repaired and finished with penetrating oils or stains that protect against sun, rain and everyday outdoor use.',
+        img: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=88',
+        alt: 'Outdoor timber deck and home exterior',
+        points: ['Deck staining', 'Fence painting', 'Pergola coating', 'Timber oil finishes']
+      },
+      colour: {
+        tag: 'Physical colour planning',
+        title: 'Colour advice based on your actual home.',
+        text: 'We test colours against flooring, roof tones, garden light, neighbouring surfaces and room direction so the selected palette feels intentional after the paint is dry.',
+        img: 'https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1200&q=88',
+        alt: 'Colour consultation with design samples',
+        points: ['Exterior palettes', 'Interior schemes', 'Sample boards', 'Light condition checks']
+      }
+    };
+
+    const serviceImage = document.getElementById('serviceImage');
+    const serviceTag = document.getElementById('serviceTag');
+    const serviceTitle = document.getElementById('serviceTitle');
+    const serviceText = document.getElementById('serviceText');
+    const servicePoints = document.getElementById('servicePoints');
+
+    document.querySelectorAll('.surface-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.surface-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const data = services[tab.dataset.service];
+        serviceImage.style.opacity = '0';
+        setTimeout(() => {
+          serviceImage.src = data.img;
+          serviceImage.alt = data.alt;
+          serviceTag.textContent = data.tag;
+          serviceTitle.textContent = data.title;
+          serviceText.textContent = data.text;
+          servicePoints.innerHTML = data.points.map(point => `<li>${point}</li>`).join('');
+          serviceImage.style.opacity = '.68';
+        }, 180);
+      });
+    });
+
+    document.querySelectorAll('#quoteChips .chip').forEach(chip => {
+      chip.addEventListener('click', () => chip.classList.toggle('active'));
+    });
+
+    document.getElementById('quoteForm').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const btn = event.currentTarget.querySelector('.form-submit');
+      btn.textContent = '✓ Request received — we will call you soon';
+      btn.style.background = '#8a9a73';
+      setTimeout(() => {
+        btn.textContent = 'Request My Free Paint Audit →';
+        btn.style.background = '';
+      }, 4500);
+    });
+
+    document.querySelector('.newsletter').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const button = event.currentTarget.querySelector('button');
+      button.textContent = '✓';
+      setTimeout(() => button.textContent = '→', 2500);
+    });
+  </script>
+</body>
+</html>
